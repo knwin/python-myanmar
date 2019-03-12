@@ -189,6 +189,10 @@ def PhonemicSyllableBreak(text, encoding):
             syllable = {k: v for k, v in match.groupdict().items() if v}
             start = match.end()
 
-        yield syllable
-
+        #yield syllable
+        try:
+            yield syllable
+        except StopIteration:
+            return
+        
     raise StopIteration
